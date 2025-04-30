@@ -16,7 +16,7 @@
             btn.Text = vez;
             vez = (vez == "X") ? "O" : "X";
 
-            // Verifica vitória
+            
             if (
                 (btn1.Text == "X" && btn2.Text == "X" && btn3.Text == "X") ||
                 (btn4.Text == "X" && btn5.Text == "X" && btn6.Text == "X") ||
@@ -47,9 +47,7 @@
                 DisplayAlert("Parabéns!", "O O ganhou!", "OK");
                 Zerar();
                 return;
-            }
-
-            // Verifica empate
+    
             if (TodosOsBotoesPreenchidos())
             {
                 DisplayAlert("Empate!", "Deu velha!", "OK");
