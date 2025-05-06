@@ -2,7 +2,7 @@
 {
     public partial class MainPage : ContentPage
     {
-       string vez = "X";
+        string vez = "X";
 
         public MainPage()
         {
@@ -16,7 +16,7 @@
             btn.Text = vez;
             vez = (vez == "X") ? "O" : "X";
 
-            
+
             if (
                 (btn1.Text == "X" && btn2.Text == "X" && btn3.Text == "X") ||
                 (btn4.Text == "X" && btn5.Text == "X" && btn6.Text == "X") ||
@@ -47,30 +47,32 @@
                 DisplayAlert("Parabéns!", "O O ganhou!", "OK");
                 Zerar();
                 return;
-    
-            if (TodosOsBotoesPreenchidos())
-            {
-                DisplayAlert("Empate!", "Deu velha!", "OK");
-                Zerar();
-                return;
             }
-        }
+                if (TodosOsBotoesPreenchidos())
+                {
+                    DisplayAlert("Empate!", "Deu velha!", "OK");
+                    Zerar();
+                    return;
+                }
 
-        bool TodosOsBotoesPreenchidos()
-        {
-            return new[] { btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9 }
-                   .All(b => !string.IsNullOrWhiteSpace(b.Text));
-        }
-
-        void Zerar()
-        {
-            foreach (var btn in new[] { btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9 })
-            {
-                btn.Text = "";
-                btn.IsEnabled = true;
             }
 
-            vez = "X";
+            bool TodosOsBotoesPreenchidos()
+            {
+                return new[] { btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9 }
+                       .All(b => !string.IsNullOrWhiteSpace(b.Text));
+            }
+
+            void Zerar()
+            {
+                foreach (var btn in new[] { btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9 })
+                {
+                    btn.Text = "";
+                    btn.IsEnabled = true;
+                }
+
+                vez = "X";
+            }
         }
     }
-}
+
